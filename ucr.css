@@ -1,0 +1,843 @@
+/*
+     /r/UCR reborn semi-passable CSS by dreadpirate_roberts_ yay!
+     shoutouts/inspiration: original /r/ucr CSS, /r/berkeley, /r/Minimaluminiumalism
+     /r/detroitbecomehuman, /r/CasualConversation, /r/trees and big thanks to /r/CSShelp
+               
+     v 1.2.1 live, Last edited April 10th, 2018
+                                            -> Changed stickied post score color, was a bit difficult to read, should be ok now
+                                            -> Changed sidebar image links to href*= cause reddit messed up some stuff >:(
+                                               https://redd.it/82udbw
+
+*/
+
+
+/* background of page */
+
+body {background: url(%%bearheadbg1%%) no-repeat fixed center center transparent}
+
+/* changes universal font on subreddit */
+
+body {font-family: Helvetica, sans-serif;}
+
+/* header image */
+
+
+#header {background: url(%%header%%);
+    background-size:cover;               /* <- this code :o*/
+    border-bottom: 30px solid #0b3982;   /* the place where the tabs are */
+    position: relative;
+    height: 210px
+    }
+
+/* Sidebar Pic */
+
+div.side {padding: 225px 0 0 0px;background:url(%%ucr-sidebarbear%%) 20px 10px no-repeat}
+
+/* tabs */
+
+#header-bottom-left .tabmenu li a {
+      padding: 10px 10px 10px 10px;   /* 10px on all sides (hot, new, controversial...) */
+      background: transparent;
+      color:#F1AB00;
+      text-transform: uppercase;      /* uppercase tabs */
+}
+
+/* tabs hover */
+
+.tabmenu li a:hover{
+      color:white!important    /*hover = white text */
+}
+
+/* selected tab*/
+
+.tabmenu li.selected a {
+    color: white!important;
+    background-color: #06275b!important;   /*slightly darker blue*/
+    border: 2px solid #F1AB00;   /* border same yellow*/
+    z-index: 100;
+}
+
+
+/* header, tabs + logo */
+
+#header-bottom-left {top: 200px;left: 0px;right:0px;position: absolute} 
+          
+/*user bar top right*/
+
+div#header div#header-bottom-right {
+    padding: 0px;
+    position: absolute;
+    top: 217px;
+    right: 10px;
+    background: transparent none repeat scroll 0% 0%;
+}
+
+/* color of user bar text*/
+
+#header-bottom-right a{
+    color:white
+}
+
+/* ucReddit logo*/
+
+.pagename a {
+    font-size:0;
+    display: block;    width: 250px;
+    height: 65px;
+    background: url(%%mainlogo2%%) no-repeat;
+    background-size: 229px 65px;
+    margin: -135px auto 67px auto !important;     /* DONT FUCK WITH THESE NUMBERS (UCREDDIT AND TABS, SNOO IS NOT REALLY */
+    position:relative;
+    transition: 0.25s;
+}
+.pagename a:hover{
+    font-size:0;
+    display: block;    width: 250px;
+    height: 65px;
+    background:url(%%mainlogo-h2%%) no-repeat;
+    background-size: 229px 65px;
+    margin: -135px auto 67px auto !important;     /* DONT FUCK WITH THESE NUMBERS (UCREDDIT AND TABS, SNOO IS NOT REALLY */
+    position:relative;
+}/* snoo spacing */
+
+#header-img{margin-top:-90px;}    /* FUCK it bumps into the bottom of the ucReddit logo, gotta make banner bigger brb */
+
+
+
+
+/* 'use subreddit style' switchy thing*/
+.titlebox form.toggle{ background:transparent}
+
+/* search box */
+#search input[type=text]{ 
+    border: 1px solid black;
+    border-radius: 2px;
+    background: transparent;
+}
+
+/* search expando coloring*/
+
+#searchexpando {
+    border-radius: 2px;
+    background: rgba(255,255,255,0.5);
+    margin: 5px 0 5px 0;
+    border: 0;
+    z-index: 1;
+    width: 275px;
+}
+
+/* get rid of blue outline when entering text*/
+
+input[type=text], input[type=password]{
+    border: 0px;
+    padding: 4px;
+    outline: 0 !important;
+}
+
+/* mod 'you are a moderator blah blah' */
+
+.leavemoderator {background:transparent}
+
+/* RES highlight thing apparently */
+
+.entry.RES-keyNav-activeElement,
+.res .RES-keyNav-activeElement .md-container {
+    background: 0!important;
+}
+.entry.RES-keyNav-activeElement,.entry:hover {
+    background:transparent;
+    padding-right:2px;
+    outline:0;
+    border:0!important;
+    border-right:3px solid black!important;
+}
+
+/* submit */
+
+.morelink {
+    border: none;
+    margin-bottom: -1px;
+    border: 0;
+    width: initial;
+    height: 35px;
+    line-height: 35px;
+}
+
+.morelink a {
+    background:grey;
+    letter-spacing: 0px;
+    font-weight: normal;
+    color: #fff;
+}
+
+.morelink a:hover {
+    color:black;
+    text-transform:lowercase;
+}
+
+/* take off the pointy ends of submit buttons */
+
+.morelink .nub {
+    display: none;
+}
+
+
+
+
+/* add cool icons to the left sides of the submit buttons */
+
+.sidebox.submit.submit-link .morelink a:after {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    bottom: 0;
+    width: 29px;
+    height: 29px;
+    background: url(%%submitlink%%) no-repeat;
+    content: "";
+}
+
+.sidebox.submit.submit-text .morelink a:after {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    bottom: 0;
+    width: 29px;
+    height: 29px;
+    background: url(%%submittext%%) no-repeat;
+    content: "";
+}
+
+
+
+/*SUBMIT POST HOVER MESSAGE*/
+
+.morelink::after {
+    content: "Use the search bar before posting!";
+    padding: 10px;
+    position: absolute;
+    display: block;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #FFF;
+    z-index: 100;
+    transition: 300ms;
+    font-weight: bold;
+    line-height: 1.4em;
+    border-radius: 3px;
+    height:15px;
+    line-height:15px;
+    pointer-events: none;
+    font-size: 12px;
+    width: 200px;
+    top:0px;
+    margin-right: 290px;
+    opacity: 0;
+    right: 0px;
+}
+
+.morelink:hover:after {
+    margin-right: 310px;
+    opacity: 100;
+}
+
+/* no warning for 'create subreddit' */
+
+.sidebox.create .morelink:hover:after {display: none;}
+
+/*END SUBMIT POST HOVER MESSAGE*/
+
+
+/* add /r/ before the ucr on the sidebar */
+
+.titlebox h1 a:before{
+content:"/r/"
+}
+
+
+/* subscribe button */
+
+.subscribe-button {
+    display: block !important;
+}
+.subscribe-button a {
+    text-transform:capitalize;
+    height:50px;                    /* gotta make a big subscribe button bruh */
+    line-height: 50px!important;     /* when in doubt, add "!important" (its a bad practice i know smh) */
+    display:block;
+    text-align: center;
+    font-family: Helvetica, sans-serif;
+    font-size: 18px !important;
+}
+.subscribe-button a.add {
+    color:white !important;
+    background: #0b3982 !important;
+    border: none;
+    transition:200ms;
+}
+.subscribe-button a.add:hover {
+    background: #2155a8 !important;     /* blue -> lighter blue :o */
+    border: none;
+    text-decoration:none;
+}
+.subscribe-button a.add:after{
+   content:", yo";          /* subscribe, yo (aint i so hip) */
+}
+.subscribe-button a.remove {
+    background: transparent !important;
+    color: grey;
+    font-weight: normal;
+    border: none;
+}
+.subscribe-button a.remove:hover{
+    text-decoration:none;
+}
+.subscribe-button a.remove:after{
+   content:" :'(";          /* adds :'( after 'unsubscribe' */
+}
+.subscribe-button a.active {
+    display: block !important;
+}
+
+/*RES +shortcut and +dashboard*/
+
+.res-fancy-toggle-button, span.multi-count {
+    display:none;
+}
+
+/* reader, users here now */
+
+.titlebox .word { display: none; }
+
+.subscribers .number::after {
+content: " Highlanders subscribed, ";
+}
+.users-online .number::before {
+content: " ~";
+}
+.users-online .number::after {
+content: " online now";
+}
+
+.side .users-online:before{display:none}    /*green dot*/
+.side .subscribers{display:inline-block;margin-top:5px;margin-right:3px}
+.side .users-online{display:inline-block}
+
+/* the sidebar itself*/
+
+.titlebox {
+    padding: 5px;
+    font-size: larger;
+    border: 2px solid #0b3982;
+    background-color:rgba(241, 171, 0, 0.3);
+    border-radius:4px;
+    z-index: 99;
+    }
+
+/* underneath 'create your own subreddit', ...because... */
+
+.sidebox .spacer {background:transparent}
+
+
+
+
+/* links in the sidebar */
+
+
+
+
+
+/* fancy af subreddit network in the sidebar */
+
+
+
+/********************* CAL *********************/
+
+.side .md [href*="https://www.reddit.com/r/Berkeley"] {
+    background: url(%%berk%%);
+    color: #fff;
+    display: block;
+    font-size: 17px;
+    height: 40px;
+    line-height: 40px;
+    padding: 5px;
+    text-align: right;
+    border-radius:5px;
+}
+
+.side .md [href*="https://www.reddit.com/r/Berkeley"]:hover {
+    color: transparent;
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+}
+
+/********************* DAVIS *********************/
+
+.side .md [href*="https://www.reddit.com/r/UCDavis"] {
+    margin-top:-10px;
+    background: url(%%davis%%);
+    color: #fff;
+    display: block;
+    font-size: 17px;
+    height: 40px;
+    line-height: 40px;
+    padding: 5px;
+    text-align: right;
+    border-radius:5px;
+}
+
+.side .md [href*="https://www.reddit.com/r/UCDavis"]:hover {
+    color: transparent;
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+}
+
+/********************* IRVINE *********************/
+
+.side .md [href*="https://www.reddit.com/r/UCI"] {
+    margin-top:-10px;
+    background: url(%%uci%%);
+    color: #fff;
+    display: block;
+    font-size: 17px;
+    height: 40px;
+    line-height: 40px;
+    padding: 5px;
+    text-align: right;
+    border-radius:5px;
+}
+
+.side .md [href*="https://www.reddit.com/r/UCI"]:hover {
+    color: transparent;
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+}
+
+/********************* UCLA *********************/
+
+.side .md [href*="https://www.reddit.com/r/UCLA"] {
+    margin-top:-10px;
+    background: url(%%ucla%%);
+    color: #fff;
+    display: block;
+    font-size: 17px;
+    height: 40px;
+    line-height: 40px;
+    padding: 5px;
+    text-align: right;
+    border-radius:5px;
+}
+
+.side .md [href*="https://www.reddit.com/r/UCLA"]:hover {    color: transparent;
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+}
+
+/********************* Merced *********************/
+
+.side .md [href*="https://www.reddit.com/r/UCMerced"] {
+    margin-top:-10px;
+    background: url(%%ucmerced%%);
+    color: #fff;
+    display: block;
+    font-size: 17px;
+    height: 40px;
+    line-height: 40px;
+    padding: 5px;
+    text-align: right;
+    border-radius:5px;
+}
+
+.side .md [href*="https://www.reddit.com/r/UCMerced"]:hover {
+    color: transparent;
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+}
+
+/********************* UCSD *********************/
+
+.side .md [href*="https://www.reddit.com/r/UCSD"] {
+    margin-top:-10px;
+    background: url(%%ucsd%%);
+    color: #fff;
+    display: block;
+    font-size: 17px;
+    height: 40px;
+    line-height: 40px;
+    padding: 5px;
+    text-align: right;
+    border-radius:5px;
+}
+
+.side .md [href*="https://www.reddit.com/r/UCSD"]:hover {
+    color: transparent;
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+}
+
+
+/********************* Santa Barbara *********************/
+
+.side .md [href*="https://www.reddit.com/r/UCSantaBarbara"] {
+    margin-top:-10px;
+    background: url(%%ucsb%%);
+    color: #fff;
+    display: block;
+    font-size: 17px;
+    height: 40px;
+    line-height: 40px;
+    padding: 5px;
+    text-align: right;
+    border-radius:5px;
+}
+
+.side .md [href*="https://www.reddit.com/r/UCSantaBarbara"]:hover {
+    color: transparent;
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+}
+
+
+/********************* UCSC *********************/
+
+.side .md [href*="https://www.reddit.com/r/UCSC"] {
+    margin-top:-10px;
+    background: url(%%ucsc%%);
+    color: #fff;
+    display: block;
+    font-size: 17px;
+    height: 40px;
+    line-height: 40px;
+    padding: 5px;
+    text-align: right;
+    border-radius:5px;
+}
+
+.side .md [href*="https://www.reddit.com/r/UCSC"]:hover {
+    color: transparent;
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+}
+
+
+
+/* other sidebar buttons */
+
+.side .md [href*="https://www.reddit.com/r/UCR/search"] {
+    background: url(%%searchbar%%);
+    color: #fff;
+    display: block;
+    font-size: 0px;
+    height: 40px;
+    padding: 5px;
+    text-align: right;
+    border-radius:5px;
+}
+
+.side .md [href*="https://www.reddit.com/r/UCR/search"]:hover {
+    background: url(%%searchbar-h%%);
+}
+
+
+.side .md [href*="https://www.instagram.com/aspb_ucr/?hl=en"] {
+    font-weight:bold;
+    background: url(%%aspb-s%%);
+    display: block;
+    font-size: 0px;
+    height: 65px;
+    padding: 5px;
+    border-radius:5px;
+    text-shadow: 2px 2px 2px black;
+}
+
+.side .md [href*="https://www.instagram.com/aspb_ucr/?hl=en"]:hover {
+    box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
+}
+
+
+.side .md [href*="http://rside.ucr.edu/index.html"] {
+    font-weight:bold;
+    margin-top:-10px;
+    background: url(%%rside-s%%);
+    display: block;
+    font-size: 0px;
+    height: 65px;
+    padding: 5px;
+    border-radius:5px;
+    text-shadow: 2px 2px 2px black;
+}
+
+.side .md [href*="http://rside.ucr.edu/index.html"]:hover {
+    box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
+}
+
+.side .md [href*="http://www.riversideca.gov/calendar"] {
+    font-weight:bold;
+    margin-top:-10px;
+    background: url(%%rcc-s%%);
+    display: block;
+    font-size: 0px;
+    height: 65px;
+    padding: 5px;
+    border-radius:5px;
+    text-shadow: 2px 2px 2px black;
+}
+
+.side .md [href*="http://www.riversideca.gov/calendar"]:hover {
+    box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
+}
+
+
+
+
+
+
+
+/****************** bottom of sidebar*******************/
+
+.side .bottom {
+    font-size: 0;
+}
+.side .bottom span {
+    display: none;
+}
+.side .bottom:after {
+    font-size: 9px;
+    content: "Created by jaycrew • CSS by DreadPirate_Roberts_ • Views and opinions expressed in this subreddit are those of the authors and do not necessarily reflect the official policy or position of UCR. • /r/UCR is not created, monitored, endorsed, or affiliated with the University of California.";
+}
+
+
+/* links */
+a{color:black}
+
+/* footer */
+.flat-vert.title {color:black}
+.footer-parent{height:300px;background-image:url(%%footer%%); margin-bottom:-100px; background-size:cover;}
+.bottommenu {font-size:0px;}
+
+
+/* for mod tools */
+.icon-menu a {background:transparent}
+
+
+
+
+
+
+/* comments stuff now */
+
+/*the [+1] for RES background */
+.voteWeight[style] {
+    background-color: transparent !important;
+}
+
+/* new comment highlighting for gold users/mods */
+
+.new-comment .usertext-body {
+    background: transparent;
+    border-color: #676539;
+    margin-top: 5px;
+}
+
+
+/* transparent = gud */
+
+.res .commentarea .comment,
+.res .commentarea .comment .comment,
+.res .commentarea .comment .comment .comment,
+.res .commentarea .comment .comment .comment .comment,
+.res .commentarea .comment .comment .comment .comment .comment,
+.res .commentarea .comment .comment .comment .comment .comment .comment,
+.res .commentarea .comment .comment .comment .comment .comment .comment .comment,
+.res .commentarea .comment .comment .comment .comment .comment .comment .comment .comment,
+.res .commentarea .comment .comment .comment .comment .comment .comment .comment .comment .comment,
+.res .commentarea .comment .comment .comment .comment .comment .comment .comment .comment .comment .comment {
+    background-color: transparent !important;
+}
+
+/* sidebar box on posts */
+
+.linkinfo{
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 2px;
+}
+
+/* submit page */
+
+.pagename {font-size:0;}
+.roundfield {background:rgba(0,0,0,0.3);border:1px solid black; border-radius:2px;}
+span.RESCharCounter{color:black}
+.formtabs-content .infobar {background:rgba(0,0,0,0.3);border:1px solid black; border-radius:2px;}
+.content.submit .info-notice {background:rgba(0,0,0,0.3);border:1px solid black; border-radius:2px;}
+.tabmenu.formtab a {font-size:130%}
+.formtabs-content {border-top: 4px solid black;}
+.roundfield textarea, .roundfield input[type=text], .roundfield input[type=url], .roundfield input[type=password], .roundfield input[type=number], .usertext-edit textarea{outline: none;}
+
+/* self post styling */
+
+.link .usertext-body .md{background:transparent;border:none;}
+
+/* 'post is archived' */
+
+.reddit-infobar.with-icon {background:transparent; border-radius:2px; text-align:center;font-size:20px;}
+
+/* RES subscription button */
+.RESSubscriptionButton {background:transparent!important;border:1px solid black!important; color:black;}
+
+/* 'highlight comments since last visit' */
+.gold-accent.comment-visits-box {background:transparent; border-radius:2px; color:black; border-color:black;}
+
+/* flair selector */
+.flairselector h2 {background:rgba(0,0,0,0.8); color:white;}
+.flairselector.drop-choices.active {border:none;box-shadow:none;}
+
+
+/* button */
+
+button {
+    background: #fcfcfc;
+    border: 1px solid #e9e9e9;
+    box-shadow: 0 1px #e9e9e9;
+    margin-bottom: 4px!important;
+    border-radius: 2px;
+    padding: 4px 8px;
+    color: #666;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #f4f4f4;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:active {
+    border-bottom: none!important;
+    background: #efefef;
+}
+
+
+
+/*** NEXT / PREV BUTTONS ***/
+
+.nav-buttons {
+    padding: 10px 5px;
+    background: transparent;
+}
+
+.nextprev, .next-suggestions {
+    font-size: 0px;
+}
+
+.nextprev a, .next-suggestions a{
+    padding: 4px 6px;
+    text-transform: uppercase;
+    font-size: 10px;
+    color: #999;
+    background: #fcfcfc;
+    border: 1px solid #e9e9e9;
+    box-shadow: 0 1px #e9e9e9;
+    margin-bottom: 4px!important;
+    border-radius: 2px;
+    font-weight: bold;
+}
+
+.nextprev a:hover, .next-suggestions a:hover {
+    background: #f4f4f4;
+    border: 1px solid #e1e1e1;
+}
+
+
+/* wtf even is this */
+.panestack-title {border-bottom: 1px solid black; margin-bottom:5px;}
+
+.thing .title:visited{color:grey;}
+
+/* last clicked link */
+
+.link.last-clicked {border:none;}
+
+/* RES Live preview */
+.RESDialogSmall.livePreview > h3 {background:transparent}
+
+
+
+/* the most awesomest user */
+
+
+.author[href$="DreadPirate_Roberts_"]:after{content:url(%%my-flair%%);}
+
+/* get rid of first moderator under moderators in subreddit */
+
+.helplink ~ .content li:nth-of-type(1) { display: none; }
+
+/* sidebar title thingy */
+
+.side .md h2 {
+    background: hsl(0, 0%, 18%);
+    color: hsl(0, 0%, 100%);
+    font-size: 120%;
+    text-shadow: 0 0 .1em hsl(0, 0%, 60%);
+    margin: .3em 0;
+    line-height: 1.8;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* sidebar list bullet points */
+
+.titlebox .md ul {
+    list-style-type: square;
+}
+
+
+/* promoted post styling */
+
+.link.promotedlink.promoted, 
+.link.promotedlink.external 
+{
+background: transparent;
+}
+
+/* sidebar ads */
+
+.dfp-ad-container {display:none;}
+
+
+/* RES selection color background - grey with opacity 30%*/
+
+.res .entry.res-selected, .res .entry.res-selected .md-container{
+    background-color:transparent!important;
+}
+
+
+
+
+
+
+/*stickied stuffs */
+
+.stickied {
+   border:3px solid green;
+   background-color:rgba(0, 0, 0, 0.2);
+   padding-top:5px;
+   margin-right:310px!important;
+}
+
+.thing.stickied .entry li .comments, .thing.stickied a, .thing.stickied, .thing.stickied .title a {
+    color:black !important;
+    font-size: 105%
+}
+.tagline .stickied-tagline, .search-result-meta .stickied-tagline{
+    color:black;
+}
+
+/* stickied score color */
+.thing.stickied .score {
+    color:black;
+}
+
+
+
+/*mod name i think*/
+
+ .thing.stickied .tagline .author.moderator {
+   background-color: black !important;
+ }
+ .res .thing.stickied .tagline .author.moderator {
+   background-color: black !important;
+ }
