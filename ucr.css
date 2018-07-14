@@ -3,7 +3,8 @@
      shoutouts/inspiration: original /r/ucr CSS, /r/berkeley, /r/Minimaluminiumalism
      /r/detroitbecomehuman, /r/CasualConversation, /r/trees and big thanks to /r/CSShelp
                
-     v 1.2.1 live, Last edited April 10th, 2018
+     v 1.2.2 live, Last edited July 14th, 2018
+                                            -> Sticky link color
                                             -> Changed stickied post score color, was a bit difficult to read, should be ok now
                                             -> Changed sidebar image links to href*= cause reddit messed up some stuff >:(
                                                https://redd.it/82udbw
@@ -819,8 +820,11 @@ background: transparent;
 }
 
 .thing.stickied .entry li .comments, .thing.stickied a, .thing.stickied, .thing.stickied .title a {
-    color:black !important;
+    /*color:black !important;*/
     font-size: 105%
+}
+.thing.stickied.link a.title {
+    color:black;
 }
 .tagline .stickied-tagline, .search-result-meta .stickied-tagline{
     color:black;
