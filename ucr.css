@@ -3,7 +3,8 @@
      shoutouts/inspiration: original /r/ucr CSS, /r/berkeley, /r/Minimaluminiumalism
      /r/detroitbecomehuman, /r/CasualConversation, /r/trees and big thanks to /r/CSShelp
                
-     v 1.2.2 live, Last edited July 14th, 2018
+     v 1.2.2a live, Last edited May 21st, 2019
+                                            -> Last clicked sticky
                                             -> Sticky link color
                                             -> Changed stickied post score color, was a bit difficult to read, should be ok now
                                             -> Changed sidebar image links to href*= cause reddit messed up some stuff >:(
@@ -765,6 +766,7 @@ button:active {
 /* get rid of first moderator under moderators in subreddit */
 
 .helplink ~ .content li:nth-of-type(1) { display: none; }
+.helplink ~ .content li:nth-of-type(2) { display: none; }
 
 /* sidebar title thingy */
 
@@ -813,7 +815,7 @@ background: transparent;
 /*stickied stuffs */
 
 .stickied {
-   border:3px solid green;
+   border:3px solid green !important;
    background-color:rgba(0, 0, 0, 0.2);
    padding-top:5px;
    margin-right:310px!important;
