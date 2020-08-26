@@ -3,12 +3,14 @@
      shoutouts/inspiration: original /r/ucr CSS, /r/berkeley, /r/Minimaluminiumalism
      /r/detroitbecomehuman, /r/CasualConversation, /r/trees and big thanks to /r/CSShelp
                
-     v 1.2.2a live, Last edited May 21st, 2019
+     v 1.3.0 live, Last edited August 26th, 2020
+                                            -> temp - Zoom tab minimized
                                             -> Last clicked sticky
                                             -> Sticky link color
                                             -> Changed stickied post score color, was a bit difficult to read, should be ok now
                                             -> Changed sidebar image links to href*= cause reddit messed up some stuff >:(
                                                https://redd.it/82udbw
+                                            -> UCRchan
 
 */
 
@@ -24,18 +26,23 @@ body {font-family: Helvetica, sans-serif;}
 /* header image */
 
 
-#header {background: url(%%header%%);
+#header {
+    background: url(%%header%%);
     background-size:cover;               /* <- this code :o*/
     border-bottom: 30px solid #0b3982;   /* the place where the tabs are */
     position: relative;
-    height: 210px
-    }
+    height: 310px;
+}
 
 /* Sidebar Pic */
 
 div.side {padding: 225px 0 0 0px;background:url(%%ucr-sidebarbear%%) 20px 10px no-repeat}
 
 /* tabs */
+
+.tabmenu {
+    margin-top:56px;
+}
 
 #header-bottom-left .tabmenu li a {
       padding: 10px 10px 10px 10px;   /* 10px on all sides (hot, new, controversial...) */
@@ -69,7 +76,7 @@ div.side {padding: 225px 0 0 0px;background:url(%%ucr-sidebarbear%%) 20px 10px n
 div#header div#header-bottom-right {
     padding: 0px;
     position: absolute;
-    top: 217px;
+    top: 317px;
     right: 10px;
     background: transparent none repeat scroll 0% 0%;
 }
@@ -84,27 +91,49 @@ div#header div#header-bottom-right {
 
 .pagename a {
     font-size:0;
-    display: block;    width: 250px;
+    display: block;
+    width: 250px;
     height: 65px;
     background: url(%%mainlogo2%%) no-repeat;
     background-size: 229px 65px;
-    margin: -135px auto 67px auto !important;     /* DONT FUCK WITH THESE NUMBERS (UCREDDIT AND TABS, SNOO IS NOT REALLY */
+    margin: -185px auto 67px auto !important;     /* DONT FUCK WITH THESE NUMBERS (UCREDDIT AND TABS, SNOO IS NOT REALLY */
     position:relative;
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -o-transition: 0.25s;
     transition: 0.25s;
 }
+
+/* UCRchan */
+
 .pagename a:hover{
     font-size:0;
     display: block;    width: 250px;
     height: 65px;
     background:url(%%mainlogo-h2%%) no-repeat;
     background-size: 229px 65px;
-    margin: -135px auto 67px auto !important;     /* DONT FUCK WITH THESE NUMBERS (UCREDDIT AND TABS, SNOO IS NOT REALLY */
+    margin: -185px auto 67px auto !important;     /* DONT FUCK WITH THESE NUMBERS (UCREDDIT AND TABS, SNOO IS NOT REALLY */
     position:relative;
 }/* snoo spacing */
 
-#header-img{margin-top:-90px;}    /* FUCK it bumps into the bottom of the ucReddit logo, gotta make banner bigger brb */
+
+#header #header-img{
+    height: 200px;
+    width: 375px;
+    background:url(%%ucrchan%%);
+    background-size:375px 200px;
+    background-repeat:no-repeat;
+    margin-top:-90px;
+}    
 
 
+#header #header-img:hover {
+    background:url(%%ucrchan-h%%);
+    height: 200px;
+    width: 375px;
+    background-size:375px 200px;
+    background-repeat:no-repeat;
+}
 
 
 /* 'use subreddit style' switchy thing*/
@@ -317,7 +346,7 @@ content: " Highlanders subscribed, ";
 content: " ~";
 }
 .users-online .number::after {
-content: " online now";
+content: " with their Zoom tab minimized";
 }
 
 .side .users-online:before{display:none}    /*green dot*/
@@ -355,8 +384,10 @@ content: " online now";
 /********************* CAL *********************/
 
 .side .md [href*="https://www.reddit.com/r/Berkeley"] {
+    /* background: url(%%berk%%);
+       color: #fff; */
     background: url(%%berk%%);
-    color: #fff;
+    color: white;
     display: block;
     font-size: 17px;
     height: 40px;
